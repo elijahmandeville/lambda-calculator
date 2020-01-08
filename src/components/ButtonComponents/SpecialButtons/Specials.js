@@ -1,17 +1,21 @@
 import React from "react";
+import { specials } from '../../../data'
+import SpecialButton from './SpecialButton';
 
-//import any components needed
+const Specials = (props) => {
+  const [commands] = useState(specials);
 
-//Import your array data to from the provided data file
-
-const Specials = () => {
-  // STEP 2 - add the imported data to state
+  const handleClick = (e) => {
+    console.log(e.target.value, 'clicked a special operator');
+  }
 
   return (
-    <div>
-      {/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
-    </div>
+    <>
+      {commands.map((command, index) => {
+        return <button onClick={props.handleClick} value={props.value} className="special-button">
+        {props.command}
+      </button>
+      })}
+    </>
   );
 };
